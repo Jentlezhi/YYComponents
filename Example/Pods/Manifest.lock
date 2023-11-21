@@ -1,0 +1,51 @@
+PODS:
+  - LookinServer (1.2.4):
+    - LookinServer/Core (= 1.2.4)
+  - LookinServer/Core (1.2.4)
+  - Masonry (1.1.0)
+  - MJRefresh (3.5.0)
+  - ReactiveObjC (3.1.1)
+  - YYComponents (0.1.0):
+    - YYComponents/Base (= 0.1.0)
+    - YYComponents/Categories (= 0.1.0)
+    - YYComponents/UIComponents (= 0.1.0)
+  - YYComponents/Base (0.1.0):
+    - YYComponents/Base/Macro (= 0.1.0)
+  - YYComponents/Base/Macro (0.1.0)
+  - YYComponents/Categories (0.1.0):
+    - YYComponents/Categories/Foundation (= 0.1.0)
+    - YYComponents/Categories/UIKit (= 0.1.0)
+  - YYComponents/Categories/Foundation (0.1.0)
+  - YYComponents/Categories/UIKit (0.1.0)
+  - YYComponents/UIComponents (0.1.0):
+    - YYComponents/UIComponents/ScrollViewDataSet (= 0.1.0)
+  - YYComponents/UIComponents/ScrollViewDataSet (0.1.0)
+
+DEPENDENCIES:
+  - LookinServer
+  - Masonry
+  - MJRefresh (= 3.5.0)
+  - ReactiveObjC
+  - YYComponents (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - LookinServer
+    - Masonry
+    - MJRefresh
+    - ReactiveObjC
+
+EXTERNAL SOURCES:
+  YYComponents:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LookinServer: 00c7588043ed8e7ab64ce55b9fb747e51371ad06
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  YYComponents: e0aacddfb20be6a931f4bc1b65419d0d126d840f
+
+PODFILE CHECKSUM: 5ec52a944c2a20204a31737cc74a263c148579f4
+
+COCOAPODS: 1.12.1
