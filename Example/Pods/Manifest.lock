@@ -26,7 +26,7 @@ DEPENDENCIES:
   - Masonry
   - MJRefresh (= 3.5.0)
   - ReactiveObjC
-  - YYComponents (from `../`)
+  - YYComponents
 
 SPEC REPOS:
   trunk:
@@ -34,10 +34,7 @@ SPEC REPOS:
     - Masonry
     - MJRefresh
     - ReactiveObjC
-
-EXTERNAL SOURCES:
-  YYComponents:
-    :path: "../"
+    - YYComponents
 
 SPEC CHECKSUMS:
   LookinServer: 00c7588043ed8e7ab64ce55b9fb747e51371ad06
@@ -46,6 +43,6 @@ SPEC CHECKSUMS:
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   YYComponents: e0aacddfb20be6a931f4bc1b65419d0d126d840f
 
-PODFILE CHECKSUM: 85b46144c1a63393567da49d93b151548545d054
+PODFILE CHECKSUM: b92711195c80366ade6e2f81647c7dcfd0b6cf2b
 
 COCOAPODS: 1.12.1

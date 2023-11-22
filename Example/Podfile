@@ -5,8 +5,8 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'YYComponents_Example' do
-  pod 'YYComponents', :path => '../'
-#  pod 'YYComponents'
+#  pod 'YYComponents', :path => '../'
+  pod 'YYComponents'
   pod 'Masonry'
   pod 'LookinServer', :configurations => ['Debug']
   pod 'MJRefresh', '3.5.0'

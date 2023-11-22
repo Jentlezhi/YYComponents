@@ -10,38 +10,7 @@
 
 const char *YYTAPACTIONKEY = "YYTAPACTIONKEY";
 
-@implementation YYViewConfig
-
-- (instancetype)init {
-    if (self = [super init]) {
-//        self.backgroundColor = UIColor.clearColor;
-        self.hidden = NO;
-    }
-    return self;
-}
-
-@end
-
 @implementation UIView (YYExtension)
-
-+ (instancetype)yy_viewWithConfig:(void(^)(YYViewConfig *config))configBlock {
-    YYViewConfig *config = [YYViewConfig new];
-    !configBlock?:configBlock(config);
-    UIView *v = [UIView new];
-    if (config.backgroundColor) {
-        v.backgroundColor = config.backgroundColor;
-    }
-    if (config.cornerRaduis > 0) {
-        v.layer.cornerRadius = config.cornerRaduis;
-        v.layer.masksToBounds = YES;
-    }
-    if (config.borderColor && config.borderWidth > 0) {
-        v.layer.borderColor = config.borderColor.CGColor;
-        v.layer.borderWidth = config.borderWidth;
-    }
-    v.hidden = config.hidden;
-    return v;
-}
 
 /**
  添加点击事件

@@ -14,28 +14,7 @@ typedef NS_ENUM(NSUInteger, YYLayoutSubviewsDirection) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YYViewConfig : NSObject
-
-@property(nonatomic, strong) UIColor *backgroundColor;
-
-@property(nonatomic, assign) CGFloat cornerRaduis;
-
-@property(nonatomic, assign) CGFloat borderWidth;
-
-@property(nonatomic, strong) UIColor *borderColor;
-
-@property(nonatomic, assign) BOOL hidden;
-
-@end
-
 @interface UIView (YYExtension)
-
-/**
- 快速创建view
- @param configBlock          配置描述
- @return                     view
- */
-+ (instancetype)yy_viewWithConfig:(void(^)(YYViewConfig *config))configBlock;
 /**
  添加点击事件
  @param tapBlock     点击动作
