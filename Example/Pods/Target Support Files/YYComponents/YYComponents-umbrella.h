@@ -13,7 +13,11 @@
 #import "YYComponents.h"
 #import "YYComponentsMacro.h"
 #import "NSObject+YYExtension.h"
+#import "NSString+YYExtension.h"
+#import "UIButton+YYExtension.h"
 #import "UIColor+YYExtension.h"
+#import "UIImage+YYExtension.h"
+#import "UILabel+YYExtension.h"
 #import "UIView+YYExtension.h"
 #import "YYScrollViewDataSet.h"
 

@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSString *highlightedTitle;
 
-@property(nonatomic, strong) UIFont *normalTitleColor;
+@property(nonatomic, strong) UIColor *normalTitleColor;
 
-@property(nonatomic, strong) UIFont *highlightedTitleColor;
+@property(nonatomic, strong) UIColor *highlightedTitleColor;
 
 @property(nonatomic, strong) UIFont *titleLabelFont;
 

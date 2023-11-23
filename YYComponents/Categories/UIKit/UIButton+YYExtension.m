@@ -6,10 +6,10 @@
 //
 
 #import "UIButton+YYExtension.h"
-#import "NSString+YYExtension.h"
+#import "UIImage+YYExtension.h"
 #import "UIColor+YYExtension.h"
 #import <objc/runtime.h>
-#import "UIImage+YYExtension.h"
+
 
 @implementation YYButtonConfig
 
@@ -23,10 +23,29 @@
     return self;
 }
 - (NSString *)highlightedTitle {
-    if (NSString.yy_isEmpty(_highlightedTitle)) {
+    if ([YYButtonConfig _isEmpty:_highlightedTitle]) {
         return self.normalTitle;
     }
     return _highlightedTitle;
+}
+
++ (BOOL)_isEmpty:(NSString *)text {
+    if(!text || text == nil || ![text isKindOfClass:[NSString class]]) return YES;
+    if ([text isEqual:[NSNull null]]) {return YES;}
+    if ([text isKindOfClass:[NSNull class]]) {return YES;}
+    ///兼容强制转换为NSString的情况
+    if ([text isEqualToString:@"(null)"]) {return YES;}
+    if ([text isEqualToString:@"<null>"]) {return YES;}
+    NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSString *trimmedStr = [text stringByTrimmingCharactersInSet:set];
+    return trimmedStr.length == 0;
+}
+
++ (NSString *)_avoidNil:(NSString *)text {
+    if ([self _isEmpty:text]) {
+        return @"";
+    }
+    return text;
 }
 
 @end
@@ -45,8 +64,8 @@ const char *YYTOUCHUPINSIDEACTIONKEY = "YYTOUCHUPINSIDEACTIONKEY";
     YYButtonConfig *config = [YYButtonConfig new];
     !configBlock?:configBlock(config);
     UIButton *b = [UIButton buttonWithType:UIButtonTypeCustom];
-    NSString *normalTitle = NSString.yy_avoidNil(config.normalTitle);
-    NSString *highlightedTitle = NSString.yy_avoidNil(config.highlightedTitle);
+    NSString *normalTitle = [YYButtonConfig _avoidNil:config.normalTitle];
+    NSString *highlightedTitle = [YYButtonConfig _avoidNil:config.highlightedTitle];
     [b setTitle:normalTitle forState:UIControlStateNormal];
     [b setTitle:highlightedTitle forState:UIControlStateHighlighted];
     [b setTitleColor:config.normalTitleColor forState:UIControlStateNormal];
@@ -73,11 +92,17 @@ const char *YYTOUCHUPINSIDEACTIONKEY = "YYTOUCHUPINSIDEACTIONKEY";
     }
 }
 
+- (void (^)(void))touchUpInsideAction {
+    return objc_getAssociatedObject(self, YYTOUCHUPINSIDEACTIONKEY);
+}
+
 - (void)_yy_buttonTouchUpInsideAction {
-    void(^tapBlock)(void) = objc_getAssociatedObject(self, YYTOUCHUPINSIDEACTIONKEY);
+    void(^tapBlock)(void) = self.touchUpInsideAction;
     if (tapBlock) {
         tapBlock();
     }
 }
+
+
 
 @end
