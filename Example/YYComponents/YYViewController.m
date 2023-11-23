@@ -23,18 +23,32 @@
 }
 
 - (void)dataSet {
-    UILabel *label = [UILabel new];
-    label.text = @"点击跳转";
-    label.textColor = UIColor.yy_randomColor;
-    [label sizeToFit];
-    label.center = self.view.center;
-    [self.view addSubview:label];
-    @weakify(self);
-    [label yy_addTapAction:^{
-        @strongify(self);
+    UIButton *btn = [UIButton yy_buttonWithConfig:^(YYButtonConfig * _Nonnull config) {
+        config.normalTitle = @"点击跳转";
+        config.normalTitleColor = UIColor.yy_randomColor;
+    } touchUpInside:^{
         YYDataSetViewController *dataSetVC = [YYDataSetViewController new];
         [self.navigationController pushViewController:dataSetVC animated:YES];
     }];
+    [btn sizeToFit];
+    btn.center = self.view.center;
+    [self.view addSubview:btn];
+//    btn.touchUpInsideAction = ^{
+//        YYDataSetViewController *dataSetVC = [YYDataSetViewController new];
+//        [self.navigationController pushViewController:dataSetVC animated:YES];
+//    };
+//    UILabel *label = [UILabel new];
+//    label.text = @"点击跳转";
+//    label.textColor = UIColor.yy_randomColor;
+//    [label sizeToFit];
+//    label.center = self.view.center;
+//    [self.view addSubview:label];
+//    @weakify(self);
+//    [label yy_addTapAction:^{
+//        @strongify(self);
+//        YYDataSetViewController *dataSetVC = [YYDataSetViewController new];
+//        [self.navigationController pushViewController:dataSetVC animated:YES];
+//    }];
 }
 
 - (void)setAllPropertiesValue {

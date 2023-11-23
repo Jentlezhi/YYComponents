@@ -33,10 +33,6 @@ Pod::Spec.new do |s|
         sss.source_files = 'YYComponents/UIComponents/ScrollViewDataSet/*.{h,m}'
     end
   end
-##
-#  s.subspec 'Categories/UIKit' do |ss|
-#    ss.source_files = 'YYComponents/Categories/UIKit/*.{h,m}'
-#  end
 
 end
 
